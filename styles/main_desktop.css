@@ -29,8 +29,8 @@
 #navbar .menu-handle {
   cursor: pointer;
   z-index: 5;
-  height: 42px;
-  width: 42px;
+  height: 35px;
+  width: 35px;
   position: relative;
 }
 
@@ -42,6 +42,7 @@
   text-align: center;
   transition: all .3s ease;
   opacity: 0;
+  font-size: 13px;
 }
 
 #navbar .logo-container {
@@ -49,9 +50,13 @@
   transition: all .5s ease;
 }
 
+#navbar .logo-container img {
+  width: 150px;
+}
+
 #navbar .menu-lines {
-  height: 42px;
-  width: 42px;
+  height: 35px;
+  width: 35px;
   border: 8px solid #ffc908;
   border-radius: 50%;
   transition: all .3s ease;
@@ -85,27 +90,27 @@
 }
 
 #navbar .menu-handle.active .menu-lines {
-  border: 8px solid white;
+  border: 5px solid white;
   transition: all .1s ease;
 }
 
 #navbar .menu-handle.active #line1 {
   border-radius: 0;
-  transform: translate(16px, 18px) rotateZ(-45deg);
+  transform: translate(13px, 15px) rotateZ(-45deg);
   border-bottom: 0px solid transparent;
   border-right: 0px solid transparent;
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   transform-origin: top left;
 }
 
 #navbar .menu-handle.active #line2 {
   border-radius: 0;
-  transform: translate(-1px, -10px) rotateZ(-45deg);
+  transform: translate(0px, -5px) rotateZ(-45deg);
   border-top: 0px solid transparent;
   border-left: 0px solid transparent;
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   transform-origin: bottom right;
 }
 
