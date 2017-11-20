@@ -15,7 +15,10 @@
     font-family: 'Quicksand';
     src: url('../fonts/Quicksand-Regular.otf');
 }
-
+.scroll-parent{
+    // max-height: 90vh;
+    // overflow: hidden;
+}
 $main-yellow : #ffc908;
 //init end
 
@@ -140,6 +143,7 @@ $main-yellow : #ffc908;
 
 }
 .nav-menu{
+    // display: none;
     position: fixed;
     z-index: -5;
     opacity: 0;
@@ -290,7 +294,7 @@ $main-yellow : #ffc908;
     .slide-items:hover{
         img{
             transition: all 2.3s ease;
-            transform: scale(0.85);
+            transform: scale(1);
         }
         .hover-tint{
             opacity: 1;
@@ -301,7 +305,7 @@ $main-yellow : #ffc908;
         // width: 35vw;
         img{
             left: 0;
-            transform: scale(1.1);
+            transform: scale(1.3);
         }
     }
 }
@@ -327,7 +331,7 @@ $main-yellow : #ffc908;
     padding-top: 100px;
     z-index: 4;
     top: 0;
-    max-height: 100vh;
+    // max-height: 100vh;
 }
 .container{
     width: 1000px;
@@ -447,7 +451,7 @@ $main-yellow : #ffc908;
 }
 #aboutFiller{
     background: #f5f5f5;
-    margin: 9vh 0 -9vh;
+    margin: 20vh 0 -9vh;
     .container{
         width: 380px;
         padding: 20vh 0;
@@ -468,6 +472,9 @@ $main-yellow : #ffc908;
             padding: 0 50px;
             line-height: 30px;
             color: #585858;
+        }
+        img:hover{
+
         }
     }
 }
@@ -540,11 +547,15 @@ $main-yellow : #ffc908;
         flex-wrap: wrap;
         justify-content: space-between;
         .flex-module{
+            // @extend .entry;
             width: 25%;
             text-align: center;
             min-height: 180px;
             cursor: pointer;
             position: relative;
+            left: 50px;
+            opacity: 0;
+            transition: all .4s ease;
             img{
                 display: block;
                 margin: auto;
@@ -560,6 +571,12 @@ $main-yellow : #ffc908;
                 top: 45%;
             }
         }
+    }
+}
+#aboutClients.closed{
+    .flex-module{
+        left: 0;
+        opacity: 1;
     }
 }
 #aboutTeam{
@@ -594,6 +611,8 @@ $main-yellow : #ffc908;
 
 // WORK PAGE----------------------------------------------\\\
 #workParent{
+    position: relative;
+    z-index: 5;
     .work-title{
         font-family: Cocogoose;
         font-size: 44px;
@@ -617,49 +636,52 @@ $main-yellow : #ffc908;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding-top: 50px;
+        margin-top: 50px;
         position: relative;
+        overflow: hidden;
+        z-index: 5;
+
         transition: all .8s cubic-bezier(0.84, -0.05, 0.25, 1) !important;;
     }
     .work-container.hidden{
         opacity: 0.5;
+        z-index: -1;
         transform: translateX(290px);
     }
     .work-module{
         width: 490px;
-        margin-bottom: 2%;
+        height: 300px;
+        // margin-bottom: 2%;
         overflow: hidden;
         position: relative;
         cursor: pointer;
         bottom: 0;
-        min-height: 330px;
-        transition: all .5s ease;
+
+
+        transition: all .8s cubic-bezier(0.84, -0.05, 0.25, 1);
         img{
-            min-height: 100%;
-            min-width: 100%;
+            width: 100%;
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) scale(1.3);
             display: block;
-            transition: all 5.5s ease;
+            transition: all .6s ease;
         }
     }
     .work-module.hide{
-        position: absolute;
-        bottom: -50px;
+        // top: 0px !important;
+        // left: 0 !important;
+        transform: scale(0.4);
         opacity: 0;
-        z-index: -55;
-        // transform: scale(0) translate(-50%, -50%);
-        // top: 50%;
-        // left: 50%;
+        z-index: -1;
     }
     .work-module.hidden{
         display: none;
     }
     .work-module:hover{
         img{
-            transform: translate(-50%, -50%) scale(1.2);
+            transform: translate(-50%, -50%) scale(1);
         }
     }
 }
@@ -668,9 +690,14 @@ $main-yellow : #ffc908;
         animation-delay: $i * 0.5s;
     }
 }
+.fp-tableCell{
+    display: block;
+    vertical-align: default;
+}
 #workDetail{
     position: fixed !important;
     top: 0;
+    opacity: 0.5;
     right: -100vw;
     width: 100%;
     height: 100%;
@@ -678,82 +705,82 @@ $main-yellow : #ffc908;
     transition: all .8s cubic-bezier(0.84, -0.05, 0.25, 1) !important;
     padding-left: 100px;
     z-index: 66;
+    font-family: Cocogoose;
+    img{
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .text{
+        line-height: 1.5;
+    }
+    .title{
+        font-size: 2vw;
+        font-weight: bold;
+    }
+    .paragraph{
+        font-size: 18px;
+        font-family: Quicksand;
+        margin: 20px 0 30px;
+    }
     .section{
-        font-family: Cocogoose;
         font-size: 20px;
         background: white;
+        position: relative;
         min-height: 100vh;
-        img{
-            display: block;
-            margin: auto;
-            max-width: 100%;
-            max-height: 100%;
-        }
-        .title{
-            font-size: 2vw;
-            line-height: 3.5vw;
-            font-weight: bold;
-            font-family: Cocogoose;
-            margin-bottom: 30px;
-            color: #19365f;
-        }
-        .paragraph{
-            font-size: 18px;
-            font-family: Quicksand;
-            line-height: 30px;
-            color: #333;
-        }
     }
-    img.right-img{
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    .abs-center{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 80%;
-    }
-    .section.center-container{
+    .section.vertical{
         text-align: center;
-
-        .title{
-            padding: 50px 0;
-            width: 800px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin: auto;
+        justify-content: flex-end;
+        .fp-tableCell{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
             margin: auto;
+            justify-content: flex-end;
         }
         img{
+            margin: auto;
             max-width: 80vw;
-
+        }
+        .sec-part{
+            width: 100%;
         }
     }
-    .section.main-bg{
-        color: white;
-        background: #19365f;
-        .title{
-            color: white;
+    .section.horizontal{
+        display: flex;
+        .fp-tableCell{
+            display: flex;
         }
-    }
-    .section{
-        .w50{
+        .sec-part{
             width: 50%;
-            min-height: 100vh;
-            float: left;
-            position: relative;
-            .text{
-                margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .sec-part:last-child{
+            img{
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
             }
-
+        }
+        .text{
+            padding: 0 10%;
         }
     }
 }
+
 #workDetail.active{
     right: 0vw;
-
+    opacity: 1;
 }
+
 .overflowHide{
     overflow: hidden;
 }
@@ -767,7 +794,18 @@ $main-yellow : #ffc908;
     left: -100px;
     transition: all .5s ease;
     cursor: pointer;
+    .back-arrow{
 
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotateZ(45deg);
+        border: 4px solid #333;
+        height: 20px;
+        width: 20px;
+        border-top: 0;
+        border-right: 0;
+    }
 }
 #workHandle.active{
     left: 0;
@@ -786,3 +824,16 @@ $main-yellow : #ffc908;
 }
 
 // WORK PAGE----------------------------------------------\\\
+
+
+.entry{
+    opacity: 0;
+    position: relative;
+    top: 50px;
+
+}
+.closed{
+    opacity: 1 !important;
+    top: 0 !important;
+    transition: all .8s ease;
+}
