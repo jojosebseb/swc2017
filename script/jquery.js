@@ -283,8 +283,13 @@ $('.filter-container > .filters').on('click', function(){
 
 $('.section-container').waypoint(function(){
     var id = $(this.element).attr('id');
-    console.log(id);
     $(this.element).addClass('closed');
 }, {
   offset: '70%'
 })
+
+$('.sec-end').on('mouseover', function(){
+    $(this).on('mousewheel', function(){
+        console.log('ivan');
+    });
+});
